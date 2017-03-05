@@ -8,11 +8,6 @@
 		<feature>ldapRegistry-3.0</feature>
 		<feature>spnego-1.0</feature>
 	</featureManager>
-	<ldapRegistry baseDN="dc=samlsso,dc=sample,dc=net" bindDN="cn=wlpuser,cn=users,dc=samlsso,dc=sample,dc=net" bindPassword="Passw0rd" host="Base-Win2k8x64.samlsso.sample.net" ldapType="Microsoft Active Directory" port="389">
-		<activedFilters/>
-	</ldapRegistry>
-	<spnego canonicalHostName="false" disableFailOverToAppAuthType="false" includeClientGSSCredentialInSubject="false" krb5Config="C:\Windows\krb5.ini" krb5Keytab="C:\Windows\win7pro.keytab" servicePrincipalNames="HTTP/win7pro.samlsso.sample.net" trimKerberosRealmNameFromPrincipal="true">
-	</spnego>
     <!-- This template enables security. To get the full use of all the capabilities, a keystore and user registry are required. -->
     
     <!-- For the keystore, default keys are generated and stored in a keystore. To provide the keystore password, generate an 
@@ -24,6 +19,9 @@
         basicRegistry element. Specify your own user name below in the name attribute of the user element. For the password, 
         generate an encoded password using bin/securityUtility encode and add it in the password attribute of the user element. 
         Then uncomment the user element. -->    
+	<ldapRegistry baseDN="dc=samlsso,dc=sample,dc=net" bindDN="cn=wasuser,cn=users,dc=samlsso,dc=sample,dc=net" bindPassword="Passw0rd" host="Base-Win2k8x64.samlsso.sample.net" ldapType="Microsoft Active Directory" port="389">
+		<activedFilters/>
+	</ldapRegistry>
 
     <!-- To access this server from a remote client add a host attribute to the following element, e.g. host="*" -->
     <httpEndpoint host="*" httpPort="80" httpsPort="443" id="defaultHttpEndpoint"/>
@@ -46,6 +44,12 @@
 	</authorization-roles>
 
     <applicationMonitor updateTrigger="mbean"/>
+
+	<spnego canonicalHostName="false" disableFailOverToAppAuthType="false" 
+		includeClientGSSCredentialInSubject="false" krb5Config="C:\Windows\krb5.ini" 
+		krb5Keytab="C:\Windows\spnmap.keytab" servicePrincipalNames="HTTP/win7pro.samlsso.sample.net" 
+		trimKerberosRealmNameFromPrincipal="true">
+	</spnego>
 
     <enterpriseApplication id="IdentityProviderAuthenticator" location="IdentityProviderAuthenticator.ear" name="IdentityProviderAuthenticator"/>
 </server>
