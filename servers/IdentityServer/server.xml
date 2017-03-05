@@ -46,8 +46,10 @@
     <applicationMonitor updateTrigger="mbean"/>
 
 	<spnego canonicalHostName="false" disableFailOverToAppAuthType="false" 
-		includeClientGSSCredentialInSubject="false" krb5Config="C:\Windows\krb5.ini" 
-		krb5Keytab="C:\Windows\spnmap.keytab" servicePrincipalNames="HTTP/win7pro.samlsso.sample.net" 
+		includeClientGSSCredentialInSubject="false"
+		krb5Config="${server.config.dir}/resources/security/spnego/krb5.ini"
+		krb5Keytab="${server.config.dir}/resources/security/spnego/spnmap.keytab"
+		servicePrincipalNames="HTTP/win7pro.samlsso.sample.net" 
 		trimKerberosRealmNameFromPrincipal="true">
 	</spnego>
 
