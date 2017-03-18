@@ -21,8 +21,8 @@
         generate an encoded password using bin/securityUtility encode and add it in the password attribute of the user element. 
         Then uncomment the user element. -->
     <ldapRegistry
-        baseDN="dc=samlsso,dc=sample,dc=net"
-        bindDN="cn=wasuser,cn=users,dc=samlsso,dc=sample,dc=net"
+        baseDN="DC=samlsso,DC=sample,DC=net"
+        bindDN="CN=wasuser,CN=users,DC=samlsso,DC=sample,DC=net"
         bindPassword="Passw0rd"
         host="Base-Win2k8x64.samlsso.sample.net"
         ldapType="Microsoft Active Directory"
